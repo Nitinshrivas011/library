@@ -1,16 +1,19 @@
 const express = require('express');
 const mongoose= require('mongoose');
 const app     = express();
-const port    = 5001;
+// const port    = 5001;
 const MyBook  = require('./models/books');
 const cors    = require('cors')
-
+// Configuring env variables
+require('dotenv').config()
+const PORT    = process.env.PORT || 5001
+const mongo   = process.env.MONGO_URI
 
 //Middleware
 app.use(express.json());
 app.use(cors())
 
-mongoose.connect('mongodb://127.0.0.1:27017/newBooks')
+mongoose.connect(mongo)
     .then(()=> console.log("DB connected"))
     .catch((err)=> console.log(err));
     
@@ -74,7 +77,7 @@ app.delete("/books/:id",async (req,res)=>{
     }
 });
 
-app.listen(port, ()=>{
+app.listen(PORT, ()=>{
     console.log(`App is running on ${port}`);
 });
 
