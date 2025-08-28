@@ -78,6 +78,6 @@ app.delete("/books/:id",async (req,res)=>{
 });
 
 app.listen(PORT, ()=>{
-    console.log(`App is running on ${port}`);
+    console.log(`App is running on ${PORT}`);
 });
 
