@@ -28,3 +28,4 @@ coverage/
 
 # miscellaneous
 *.local
+Backend/node_modules/.package-lock.json
